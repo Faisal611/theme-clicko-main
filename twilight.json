@@ -31,13 +31,6 @@
             "icon": "sicon-store",
             "path": "pages.slide-show",
             "fields": []
-        },
-        {
-            "key": "1cfafca1-2aef-4ff6-bd03-35f2100a65db",
-            "title": "Home Component",
-            "icon": "sicon-store",
-            "path": "home.home-component",
-            "fields": []
         }
     ],
     "support_url": "https://salla.com/",
