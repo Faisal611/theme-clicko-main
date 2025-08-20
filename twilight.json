@@ -24,15 +24,7 @@
         "component-youtube"
     ],
     "settings": [],
-    "components": [
-        {
-            "key": "d52b6d03-aa9c-49f9-bf2d-7f5aa0b114d6",
-            "title": "Slide show",
-            "icon": "sicon-store",
-            "path": "pages.slide-show",
-            "fields": []
-        }
-    ],
+
     "support_url": "https://salla.com/",
     "description": {
         "ar": "مجموعة كبيرة من المزايا لدعم تجارتك وتقديم تجربة تسوق مثيرة لعملائك",
