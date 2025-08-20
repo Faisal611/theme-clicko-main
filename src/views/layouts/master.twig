@@ -1,62 +1,26 @@
 <!doctype html>
 <html class="no-js" lang="{{ user.language.code }}" dir="{{ user.language.dir }}">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="">
-
-    {% block head_scripts %}{% endblock %}
-
-    <title>Salla theme</title>
-    
-    <link rel="stylesheet" href="{{ 'theme.css' | asset }}">
-
-    {% hook 'head:start' %}
-
-    {% hook head %}
-    {% block styles %}{% endblock %}
-
-    {% hook 'head:end' %}
-  </head>
-  <body 
-    class="gradient scrollbar-body overflow-x-hidden text-[1rem] md:text-[1rem] rtl" 
-    x-data="{ runDispatch: true }"
-    :class="($store.xPopup.open || $store.xPopup.openVideoShopping) && 'overflow-hidden padding-scrollbar'" 
-    x-init="$store.xPopup.setWidthScrollbar();{% if request.design_mode %} document.addEventListener('shopify:section:load', ()=>{ runDispatch = true }); $store.xCc.load('{{ shop.url }}','{{ shop.email }}','{{ settings.preset }}'){% endif %}"
-    x-on:mouseover="if (runDispatch) { $dispatch('init-run'); runDispatch = false; }"
-    x-on:touchstart="if (runDispatch) { 
-      if (event.target.parentNode.parentNode.id == 'SearchOpen' || event.target.parentNode.id == 'SearchOpen') { setTimeout(() => {  document.querySelector('#SearchOpen').click() }, 200) 
-      } else if (event.target.parentNode.parentNode.id == 'cart-icon' || event.target.parentNode.id == 'cart-icon') { setTimeout(() => {  document.querySelector('#cart-icon').click() }, 200) 
-      }  else if (event.target.parentNode.id == 'mobile-navigation' || event.target.id == 'mobile-navigation') { setTimeout(() => {  document.querySelector('#mobile-navigation').click() }, 200) 
-      } else { event.target.click()  }
-      $dispatch('init-run'); runDispatch = false;
-    }"
-  >
-    {% hook 'body:start' %}
-
-    <div class="main-container flex flex-col min-h-screen relative">
-      <a class="skip-to-content absolute -z-10 button button-solid hidden lg:block pt-2.5 pb-2.5 pl-6 pr-6 lg:pt-3 lg:pb-3 mt-0.5 ml-0.5 leading-normal justify-center cursor-pointer focus-visible:z-60" href="#MainContent">
-        accessibility
-      </a>
-
-      
-      <main id="MainContent" class="content-for-layout focus-none outline-none grow theme-template-home theme-template-suffix-none" role="main" tabindex="-1">
-        {% block content %}{% endblock %}
-      </main>
-
-    </div>
-    {% hook 'body:end' %}
-
-
-    <div>
-      <ul hidden>
-        <li id="a11y-refresh-page-message">refresh</li>
-        <li id="a11y-new-window-message">New Window</li>
-      </ul>
-
-      <script src="{{ 'theme.js' | asset }}" defer></script>
-      <script src="{{ 'vendors.js' | asset }}" defer></script>
-    </div>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="">
+  {% block head_scripts %}{% endblock %}
+  <title>Salla theme</title>
+  <link rel="stylesheet" href="{{ 'theme.css' | asset }}">
+  {% hook 'head:start' %}
+  {% hook head %}
+  {% block styles %}{% endblock %}
+  {% hook 'head:end' %}
+</head>
+<body id="app" class="overflow-x-hidden">
+  {% hook 'body:start' %}
+  <main role="main" id="main" class="anchor">
+    {% block content %}{% endblock %}
+    {% component 'footer.footer' %}
+  </main>
+  {% hook 'body:end' %}
+  <script src="{{ 'theme.js' | asset }}" defer></script>
+  {% block scripts %}{% endblock %}
+</body>
 </html>
