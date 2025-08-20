@@ -1,8 +1,49 @@
-
 {% extends "layouts.master" %}
+
 {% block content %}
-    {% component pages %}
-{% endblock %}
-{% block scripts %}
-    <script defer src="{{ 'home.js' | asset }}"></script>
+    {# <h1>Home Page</h1>
+
+    <div class="section-page relative mx-auto pt-[10px] md:pt-[10px] pb-[10px] md:pb-[10px] ltr">
+      <div class="x-section-page">
+        <div class="page__container ml-auto mr-auto pr-5 pl-5">
+          <div class="mb-5 pt-2 pb-2">
+              <h2 class="h2 text-left">Hello Page</h2>
+          </div>
+          <div class="page__body anm-fade-paragraph">
+            <div x-intersect.once="$el.classList.add('is-visible')" class="rte anm-fade-element">
+              This is page content
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="relative">
+    <p class="empty:hidden mb-2 mt-2 pl-4 pr-4 pt-3 pb-3 bg-[rgba(var(--color-error),0.2)] rounded-md" x-ref="engraving_error"></p>
+    <textarea
+      id="asda"
+      class="customization-picker w-full pl-5 pr-5 pt-4 pb-4 border focus:outline-none focus:border-current bg-transparent !rounded-md"
+      form="akshdfs"
+      x-ref="engraving_text"
+      rows="4"
+        required
+        x-on:input.change="
+          $el.classList.remove('required-picker');
+          var productInfo = $el.closest('.product-info');
+          var paymentBtn = productInfo.querySelector('.payment-button--clone');
+          var propertiesInput = productInfo.querySelectorAll('.customization-picker.required-picker');
+          if (propertiesInput.length) {
+            paymentBtn?.classList.remove('hidden');
+          }
+          else {
+            paymentBtn?.classList.add('hidden');
+          }
+        "
+        maxlength="1000"
+    ></textarea>
+    <p class="text-required hidden text-[rgba(var(--color-error))] mt-1">Hello</p>
+      <p class="mt-2">This is note</p>
+  </div> #}
+  {% include "components.pages.slider-show" %}
+
 {% endblock %}
