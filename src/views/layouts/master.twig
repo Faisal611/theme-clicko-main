@@ -15,10 +15,10 @@
 </head>
 <body id="app" class="overflow-x-hidden">
   {% hook 'body:start' %}
-  <main role="main" id="main" class="anchor">
+  {# <main role="main" id="main" class="anchor">
     {% block content %}{% endblock %}
     {% component 'footer.footer' %}
-  </main>
+  </main> #}
   {% hook 'body:end' %}
   <script src="{{ 'theme.js' | asset }}" defer></script>
   {% block scripts %}{% endblock %}
